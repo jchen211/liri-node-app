@@ -6,6 +6,9 @@ require ("dotenv").config();
 var fs = require("fs");
 // axios
 var axios = require("axios");
+//moment
+var moment = require('moment');
+moment().format();
 
 var searchThis = process.argv[2];
 var movie, artist, song = process.argv[3];
@@ -44,7 +47,9 @@ function callLiri() {
                 console.log("City: " + concertData.data[1].venue.city);
                 console.log("Region: " + concertData.data[1].venue.region);
                 console.log("Country: " + concertData.data[1].venue.country);
-                console.log("Date of Event: " + concertData.data[1].datetime);
+
+               var date = concertData.data[1].datetime = moment(date).format("MM/DD/YYYY");
+                console.log("Date of Event: " + date);
             });
             break;
             
