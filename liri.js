@@ -11,6 +11,7 @@ var moment = require('moment');
 moment().format();
 
 var searchThis = process.argv[2];
+
 var movie, artist, song = process.argv[3];
     movie = artist = song
 
@@ -43,13 +44,20 @@ function callLiri() {
 
             axios.get(concertUrl)
             .then(function(concertData){
-                console.log("Venue: " + concertData.data[1].venue.name);
-                console.log("City: " + concertData.data[1].venue.city);
-                console.log("Region: " + concertData.data[1].venue.region);
-                console.log("Country: " + concertData.data[1].venue.country);
+            
+                for (var i = 0; i < 10; i++) {
 
-               var date = concertData.data[1].datetime = moment(date).format("MM/DD/YYYY");
+                console.log("Venue: " + concertData.data[i].venue.name);
+                console.log("City: " + concertData.data[i].venue.city);
+                console.log("Region: " + concertData.data[i].venue.region);
+                console.log("Country: " + concertData.data[i].venue.country);
+
+               var date = concertData.data[i].datetime = moment(date).format("MM/DD/YYYY");
                 console.log("Date of Event: " + date);
+
+                console.log("-------------------------------------------------");
+
+                }
             });
             break;
             
@@ -88,7 +96,12 @@ if (searchThis === "do-what-it-says") {
         }
 
         var txt = said.split(",");
-        console.log(txt);
+
+            searchThis = txt[0];
+            song = txt[1];
+
+        callLiri();
+        
     });
 }
 
