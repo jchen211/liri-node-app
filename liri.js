@@ -61,12 +61,13 @@ function callLiri() {
                     if (err) {
                         console.log("Error: " + err);
                     }
-                    console.log(musicData.tracks.items[4].preview_url);
-                    //console.log("Artist(s): " + musicData.tracks.items[1].album.name);
-                    //console.log("Song Name : " + musicData.tracks.items[1].album.artists.name);
-
-
+                    
+                    console.log("Song Name: " + musicData.tracks.items[4].name);
+                    console.log("Artist(s): " + musicData.tracks.items[4].artists[0].name);
+                    console.log("Album: " + musicData.tracks.items[4].album.name);
+                    console.log("Preview: " + musicData.tracks.items[4].preview_url);
             });
+            break;
             
             
         
