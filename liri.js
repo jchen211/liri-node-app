@@ -1,8 +1,6 @@
 // spotify 
 require ("dotenv").config();
-var Spotify = require('node-spotify-api');
-var keys = require("./keys.js");
-var spotifySongs = new Spotify(keys.spotify);
+
 
 // file share
 var fs = require("fs");
@@ -48,8 +46,28 @@ function callLiri() {
                 console.log("Country: " + concertData.data[1].venue.country);
                 console.log("Date of Event: " + concertData.data[1].datetime);
             });
+            break;
+            
+        case "spotify-this-song":
+            var Spotify = require('node-spotify-api');
+            var keys = require("./keys.js");
+            var spotifySongs = new Spotify(keys.spotify);
+        
+            spotifySongs.search({
+                type: "track",
+                query: song
+
+            }, function (err, musicData) {
+                    if (err) {
+                        console.log("Error: " + err);
+                    }
+
+                    console.log(musicData.tracks.items[1].album.name);
+
+            });
             
             
+        
 
     };
 

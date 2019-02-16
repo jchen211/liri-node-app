@@ -53,7 +53,7 @@ axios.get(concertUrl)
             console.log("Date of Event: " + concertData.data[1].datetime);
         }
     });
-/* 
+
 spotifySongs.search({
         type: "track",
         query: song
@@ -66,7 +66,7 @@ spotifySongs.search({
             }
         });
             
-     */
+    
 fs.readFile("random.txt", "utf8", function(err, data) {
     if (err) {
       return console.log(err);
