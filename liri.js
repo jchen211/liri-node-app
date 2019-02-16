@@ -52,7 +52,12 @@ function callLiri() {
             var Spotify = require('node-spotify-api');
             var keys = require("./keys.js");
             var spotifySongs = new Spotify(keys.spotify);
-        
+         
+            if (!song) {
+                song = "The Sign Ace of Base";
+
+            }
+            
             spotifySongs.search({
                 type: "track",
                 query: song
@@ -61,10 +66,10 @@ function callLiri() {
                     if (err) {
                         console.log("Error: " + err);
                     }
-                    
-                    console.log("Song Name: " + musicData.tracks.items[4].name);
+
+                    console.log("Song Name: " + musicData.tracks.items[4].album.name);
                     console.log("Artist(s): " + musicData.tracks.items[4].artists[0].name);
-                    console.log("Album: " + musicData.tracks.items[4].album.name);
+                    console.log("Album: " + musicData.tracks.items[4].name);
                     console.log("Preview: " + musicData.tracks.items[4].preview_url);
             });
             break;
