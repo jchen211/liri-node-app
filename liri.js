@@ -78,14 +78,18 @@ function callLiri() {
                     console.log("Preview: " + musicData.tracks.items[4].preview_url);
             });
             break;
-            
-            
-        
-
     };
+}
 
+if (searchThis === "do-what-it-says") {
+    fs.readFile("random.txt", "utf8", function(err, said){
+        if (err) {
+            console.log("Error: " + err);
+        }
 
-
+        var txt = said.split(",");
+        console.log(txt);
+    });
 }
 
 callLiri();
