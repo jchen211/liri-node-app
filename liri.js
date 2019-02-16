@@ -61,8 +61,10 @@ function callLiri() {
                     if (err) {
                         console.log("Error: " + err);
                     }
+                    console.log(musicData.tracks.items[4].preview_url);
+                    //console.log("Artist(s): " + musicData.tracks.items[1].album.name);
+                    //console.log("Song Name : " + musicData.tracks.items[1].album.artists.name);
 
-                    console.log(musicData.tracks.items[1].album.name);
 
             });
             
