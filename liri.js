@@ -52,8 +52,9 @@ function callLiri() {
                 console.log("Region: " + concertData.data[i].venue.region);
                 console.log("Country: " + concertData.data[i].venue.country);
 
-               var date = concertData.data[i].datetime = moment(date).format("MM/DD/YYYY");
-                console.log("Date of Event: " + date);
+               var date = concertData.data[i].datetime 
+               dateMoment = moment(date).format("MM/DD/YYYY");
+                console.log("Date of Event: " + dateMoment);
 
                 console.log("-------------------------------------------------");
 
@@ -79,11 +80,15 @@ function callLiri() {
                     if (err) {
                         console.log("Error: " + err);
                     }
+                    for (var i = 0; i < 10; i++) {
+                        console.log("Song Name: " + musicData.tracks.items[i].album.name);
+                        console.log("Artist(s): " + musicData.tracks.items[i].artists[0].name);
+                        console.log("Album: " + musicData.tracks.items[i].name);
+                        console.log("Preview: " + musicData.tracks.items[i].preview_url);
 
-                    console.log("Song Name: " + musicData.tracks.items[4].album.name);
-                    console.log("Artist(s): " + musicData.tracks.items[4].artists[0].name);
-                    console.log("Album: " + musicData.tracks.items[4].name);
-                    console.log("Preview: " + musicData.tracks.items[4].preview_url);
+                        console.log("-------------------------------------------------");
+                        
+                    }
             });
             break;
     };
